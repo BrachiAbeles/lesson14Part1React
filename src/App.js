@@ -1,25 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 
+import {useSelector}from "react-redux";
+import WatchList from './features/watches/WatchList';
+import AddWatch from './features/watches/AddWatch';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  let selected=useSelector(state=>state.selectedWatch)
+  let selectedForEdit=useSelector(state=>state.selectedWatchForEdit)
+  return (<>
+
+<WatchList/>
+<AddWatch/>
+  </>);
 }
 
 export default App;
